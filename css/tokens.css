@@ -1,7 +1,13 @@
 :root {
   --color-primary: #0055ff;
+  --wdn-bg-section: #F3F2F1; 
+   --wdn-color-brand-primary-hover: #b81d23;
   --font-size-large:2rem;
   --colorin:#b1b1b1;
-  --padding-general:1rem;
+  --padding-general:0;
   --boder-general: 2px;
+  --altura:100px;
+   --altura-btn:100px;
+  --wdn-font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'San Francisco', system-ui, sans-serif;
+  --wdn-font-family-mono: 'Consolas', 'Monaco', 'Courier New', monospace;
 }

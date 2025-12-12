@@ -1,0 +1,427 @@
+/**
+ * ============================================================================
+ * DESIGN TOKENS - WebDesk.Next V1
+ * ============================================================================
+ *
+ * Sistema de tokens de diseno para CreditForce Partner Dashboard.
+ * Basado en principios de Microsoft Fluent UI.
+ *
+ * Fuente: Figma-Project-Designs/DesignTokens.tsx
+ * Convertido de Tailwind CSS a CSS puro con Flexbox.
+ *
+ * IMPORTANTE: Este archivo es la fuente de verdad para todos los
+ * Web Components del proyecto. Los componentes deben referenciar
+ * estas variables CSS en lugar de valores hardcodeados.
+ *
+ * @version 1.0.0
+ * @lastUpdate December 2025
+ * ============================================================================
+ */
+
+/* ============================================================================
+   ROOT VARIABLES - TOKENS GLOBALES
+   ============================================================================ */
+:root {
+  /* --------------------------------------------------------------------------
+     BRAND COLORS - Colores de Marca CreditForce
+     -------------------------------------------------------------------------- */
+  --wdn-color-brand-primary: #d2232a;       /* CreditForce Red - acciones principales */
+  --wdn-color-brand-primary-hover: #b81d23; /* Hover state - 10% mas oscuro */
+  --wdn-color-brand-primary-light: #FDE7E9; /* Light red - selected row, secondary hover */
+
+  /* --------------------------------------------------------------------------
+     NEUTRAL GREYS - Escala de Grises Neutrales
+     -------------------------------------------------------------------------- */
+  --wdn-color-black: #000000;               /* Texto primario, valores de datos */
+  --wdn-color-grey-90: #201F1E;             /* Encabezados, etiquetas */
+  --wdn-color-grey-70: #605E5C;             /* Texto secundario */
+  --wdn-color-grey-50: #8A8886;             /* Texto deshabilitado, estado pending */
+  --wdn-color-grey-30: #EDEBE9;             /* Divisores */
+  --wdn-color-grey-20: #E1DFDD;             /* Bordes */
+  --wdn-color-grey-10: #F3F2F1;             /* Fondos de seccion, hover */
+  --wdn-color-grey-5: #FAF9F8;              /* Fondo de pagina */
+  --wdn-color-white: #FFFFFF;               /* Fondo de tarjetas, paneles */
+
+  /* --------------------------------------------------------------------------
+     STATUS COLORS - Colores de Estado
+     -------------------------------------------------------------------------- */
+  --wdn-color-status-paid: #107C10;         /* Verde - pagado/exitoso */
+  --wdn-color-status-overdue: #d2232a;      /* Rojo - vencido/error */
+  --wdn-color-status-promise: #8764B8;      /* Purpura - promesa de pago */
+  --wdn-color-status-query: #CA5010;        /* Naranja - consulta/advertencia */
+  --wdn-color-status-pending: #8A8886;      /* Gris - pendiente */
+
+  /* --------------------------------------------------------------------------
+     BACKGROUND COLORS - Colores de Fondo
+     -------------------------------------------------------------------------- */
+  --wdn-bg-page: #FAF9F8;                   /* Fondo de pagina principal */
+  --wdn-bg-card: #FFFFFF;                   /* Tarjetas, paneles, modales */
+  --wdn-bg-section: #F3F2F1;                /* Fondos de seccion, sidebar */
+  --wdn-bg-alternate-row: #FAF9F8;          /* Filas alternas de tabla */
+  --wdn-bg-selected-row: #FDE7E9;           /* Fila seleccionada (rojo claro) */
+  --wdn-bg-hover: #F3F2F1;                  /* Hover en botones y filas */
+
+  /* --------------------------------------------------------------------------
+     TYPOGRAPHY - Tipografia
+     -------------------------------------------------------------------------- */
+  /* Font Family */
+  --wdn-font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'San Francisco', system-ui, sans-serif;
+  --wdn-font-family-mono: 'Consolas', 'Monaco', 'Courier New', monospace;
+
+  /* Font Sizes */
+  --wdn-font-size-h1: 24px;                 /* Titulo de pagina */
+  --wdn-font-size-h2: 20px;                 /* Encabezado de seccion */
+  --wdn-font-size-h3: 16px;                 /* Encabezado de subseccion */
+  --wdn-font-size-body: 14px;               /* Texto estandar */
+  --wdn-font-size-small: 12px;              /* Etiquetas, metadata */
+  --wdn-font-size-tiny: 11px;               /* Captions */
+
+  /* Font Weights */
+  --wdn-font-weight-normal: 400;
+  --wdn-font-weight-medium: 500;
+  --wdn-font-weight-semibold: 600;
+
+  /* Line Heights */
+  --wdn-line-height-h1: 32px;
+  --wdn-line-height-h2: 28px;
+  --wdn-line-height-h3: 22px;
+  --wdn-line-height-body: 20px;
+  --wdn-line-height-small: 16px;
+  --wdn-line-height-tiny: 14px;
+
+  /* --------------------------------------------------------------------------
+     SPACING - Sistema de Espaciado (8px Grid)
+     -------------------------------------------------------------------------- */
+  --wdn-spacing-xs: 4px;                    /* Padding ajustado */
+  --wdn-spacing-sm: 8px;                    /* Gaps pequenos */
+  --wdn-spacing-md: 16px;                   /* Padding estandar */
+  --wdn-spacing-lg: 24px;                   /* Gaps de seccion */
+  --wdn-spacing-xl: 32px;                   /* Secciones grandes */
+  --wdn-spacing-2xl: 48px;                  /* Nivel de pagina */
+
+  /* --------------------------------------------------------------------------
+     BORDER RADIUS - Bordes Redondeados
+     -------------------------------------------------------------------------- */
+  --wdn-radius-standard: 4px;               /* Botones, inputs, tarjetas */
+  --wdn-radius-badge: 12px;                 /* Badges (forma de pastilla) */
+  --wdn-radius-circle: 50%;                 /* Avatares */
+
+  /* --------------------------------------------------------------------------
+     BORDERS - Bordes
+     -------------------------------------------------------------------------- */
+  --wdn-border-width: 1px;
+  --wdn-border-width-button: 2px;
+  --wdn-border-color: #E1DFDD;              /* Grey 20 */
+  --wdn-border-color-focus: #d2232a;        /* Brand primary para focus */
+
+  /* --------------------------------------------------------------------------
+     SHADOWS - Sombras y Elevacion
+     -------------------------------------------------------------------------- */
+  /* Level 1 - Tarjetas */
+  --wdn-shadow-card: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+
+  /* Level 2 - Paneles laterales */
+  --wdn-shadow-panel: -2px 0 4px 0 rgba(0, 0, 0, 0.08);
+
+  /* Level 3 - Modales */
+  --wdn-shadow-modal: 0 4px 8px 0 rgba(0, 0, 0, 0.20), 0 2px 4px 0 rgba(0, 0, 0, 0.14);
+
+  /* --------------------------------------------------------------------------
+     TRANSITIONS - Animaciones
+     -------------------------------------------------------------------------- */
+  --wdn-transition-fast: 150ms;             /* Interacciones de boton */
+  --wdn-transition-normal: 200ms;           /* Cambios de contexto */
+  --wdn-transition-panel: 250ms;            /* Transiciones de panel */
+  --wdn-transition-easing: cubic-bezier(0.4, 0.0, 0.6, 1);
+
+  /* --------------------------------------------------------------------------
+     Z-INDEX - Capas de Apilamiento
+     -------------------------------------------------------------------------- */
+  --wdn-z-content: 0;                       /* Contenido principal */
+  --wdn-z-dropdown: 10;                     /* Dropdowns, tooltips */
+  --wdn-z-modal: 20;                        /* Dialogos modales */
+  --wdn-z-panel: 30;                        /* Paneles (Notes, History) */
+  --wdn-z-topbar: 40;                       /* GridViewTopBar */
+  --wdn-z-view-switcher: 50;                /* View Switcher, GridViewSidebar */
+
+  /* --------------------------------------------------------------------------
+     LAYOUT - Dimensiones de Layout
+     -------------------------------------------------------------------------- */
+  --wdn-sidebar-width-expanded: 240px;
+  --wdn-sidebar-width-collapsed: 64px;
+  --wdn-topbar-height: 48px;
+  --wdn-panel-width: 400px;
+  --wdn-max-content-width: 1440px;
+}
+
+/* ============================================================================
+   UTILITY CLASSES - Clases Utilitarias
+   ============================================================================ */
+
+/* --------------------------------------------------------------------------
+   TYPOGRAPHY UTILITIES - Utilidades de Tipografia
+   -------------------------------------------------------------------------- */
+.wdn-text-h1 {
+  font-family: var(--wdn-font-family);
+  font-size: var(--wdn-font-size-h1);
+  font-weight: var(--wdn-font-weight-semibold);
+  line-height: var(--wdn-line-height-h1);
+  color: var(--wdn-color-grey-90);
+}
+
+.wdn-text-h2 {
+  font-family: var(--wdn-font-family);
+  font-size: var(--wdn-font-size-h2);
+  font-weight: var(--wdn-font-weight-semibold);
+  line-height: var(--wdn-line-height-h2);
+  color: var(--wdn-color-grey-90);
+}
+
+.wdn-text-h3 {
+  font-family: var(--wdn-font-family);
+  font-size: var(--wdn-font-size-h3);
+  font-weight: var(--wdn-font-weight-semibold);
+  line-height: var(--wdn-line-height-h3);
+  color: var(--wdn-color-grey-90);
+}
+
+.wdn-text-body {
+  font-family: var(--wdn-font-family);
+  font-size: var(--wdn-font-size-body);
+  font-weight: var(--wdn-font-weight-normal);
+  line-height: var(--wdn-line-height-body);
+  color: var(--wdn-color-black);
+}
+
+.wdn-text-small {
+  font-family: var(--wdn-font-family);
+  font-size: var(--wdn-font-size-small);
+  font-weight: var(--wdn-font-weight-normal);
+  line-height: var(--wdn-line-height-small);
+  color: var(--wdn-color-grey-70);
+}
+
+.wdn-text-tiny {
+  font-family: var(--wdn-font-family);
+  font-size: var(--wdn-font-size-tiny);
+  font-weight: var(--wdn-font-weight-normal);
+  line-height: var(--wdn-line-height-tiny);
+  color: var(--wdn-color-grey-70);
+}
+
+.wdn-text-mono {
+  font-family: var(--wdn-font-family-mono);
+  font-size: var(--wdn-font-size-small);
+}
+
+/* --------------------------------------------------------------------------
+   COLOR UTILITIES - Utilidades de Color
+   -------------------------------------------------------------------------- */
+.wdn-text-primary { color: var(--wdn-color-black); }
+.wdn-text-secondary { color: var(--wdn-color-grey-70); }
+.wdn-text-disabled { color: var(--wdn-color-grey-50); }
+.wdn-text-brand { color: var(--wdn-color-brand-primary); }
+
+.wdn-bg-page { background-color: var(--wdn-bg-page); }
+.wdn-bg-card { background-color: var(--wdn-bg-card); }
+.wdn-bg-section { background-color: var(--wdn-bg-section); }
+
+/* --------------------------------------------------------------------------
+   STATUS UTILITIES - Utilidades de Estado
+   -------------------------------------------------------------------------- */
+.wdn-status-paid { color: var(--wdn-color-status-paid); }
+.wdn-status-overdue { color: var(--wdn-color-status-overdue); }
+.wdn-status-promise { color: var(--wdn-color-status-promise); }
+.wdn-status-query { color: var(--wdn-color-status-query); }
+.wdn-status-pending { color: var(--wdn-color-status-pending); }
+
+.wdn-status-paid-bg { background-color: var(--wdn-color-status-paid); }
+.wdn-status-overdue-bg { background-color: var(--wdn-color-status-overdue); }
+.wdn-status-promise-bg { background-color: var(--wdn-color-status-promise); }
+.wdn-status-query-bg { background-color: var(--wdn-color-status-query); }
+.wdn-status-pending-bg { background-color: var(--wdn-color-status-pending); }
+
+/* --------------------------------------------------------------------------
+   FLEXBOX UTILITIES - Utilidades de Flexbox
+   -------------------------------------------------------------------------- */
+.wdn-flex { display: flex; }
+.wdn-flex-inline { display: inline-flex; }
+.wdn-flex-row { flex-direction: row; }
+.wdn-flex-column { flex-direction: column; }
+.wdn-flex-wrap { flex-wrap: wrap; }
+.wdn-flex-nowrap { flex-wrap: nowrap; }
+
+/* Alignment */
+.wdn-items-start { align-items: flex-start; }
+.wdn-items-center { align-items: center; }
+.wdn-items-end { align-items: flex-end; }
+.wdn-items-stretch { align-items: stretch; }
+
+.wdn-justify-start { justify-content: flex-start; }
+.wdn-justify-center { justify-content: center; }
+.wdn-justify-end { justify-content: flex-end; }
+.wdn-justify-between { justify-content: space-between; }
+.wdn-justify-around { justify-content: space-around; }
+
+/* Flex Item */
+.wdn-flex-1 { flex: 1 1 0%; }
+.wdn-flex-auto { flex: 1 1 auto; }
+.wdn-flex-none { flex: none; }
+.wdn-flex-grow { flex-grow: 1; }
+.wdn-flex-shrink-0 { flex-shrink: 0; }
+
+/* --------------------------------------------------------------------------
+   GAP UTILITIES - Utilidades de Espaciado Flex
+   -------------------------------------------------------------------------- */
+.wdn-gap-xs { gap: var(--wdn-spacing-xs); }
+.wdn-gap-sm { gap: var(--wdn-spacing-sm); }
+.wdn-gap-md { gap: var(--wdn-spacing-md); }
+.wdn-gap-lg { gap: var(--wdn-spacing-lg); }
+.wdn-gap-xl { gap: var(--wdn-spacing-xl); }
+
+/* --------------------------------------------------------------------------
+   SPACING UTILITIES - Utilidades de Margin y Padding
+   -------------------------------------------------------------------------- */
+/* Padding */
+.wdn-p-xs { padding: var(--wdn-spacing-xs); }
+.wdn-p-sm { padding: var(--wdn-spacing-sm); }
+.wdn-p-md { padding: var(--wdn-spacing-md); }
+.wdn-p-lg { padding: var(--wdn-spacing-lg); }
+.wdn-p-xl { padding: var(--wdn-spacing-xl); }
+
+.wdn-px-xs { padding-left: var(--wdn-spacing-xs); padding-right: var(--wdn-spacing-xs); }
+.wdn-px-sm { padding-left: var(--wdn-spacing-sm); padding-right: var(--wdn-spacing-sm); }
+.wdn-px-md { padding-left: var(--wdn-spacing-md); padding-right: var(--wdn-spacing-md); }
+.wdn-px-lg { padding-left: var(--wdn-spacing-lg); padding-right: var(--wdn-spacing-lg); }
+
+.wdn-py-xs { padding-top: var(--wdn-spacing-xs); padding-bottom: var(--wdn-spacing-xs); }
+.wdn-py-sm { padding-top: var(--wdn-spacing-sm); padding-bottom: var(--wdn-spacing-sm); }
+.wdn-py-md { padding-top: var(--wdn-spacing-md); padding-bottom: var(--wdn-spacing-md); }
+.wdn-py-lg { padding-top: var(--wdn-spacing-lg); padding-bottom: var(--wdn-spacing-lg); }
+
+/* Margin */
+.wdn-m-xs { margin: var(--wdn-spacing-xs); }
+.wdn-m-sm { margin: var(--wdn-spacing-sm); }
+.wdn-m-md { margin: var(--wdn-spacing-md); }
+.wdn-m-lg { margin: var(--wdn-spacing-lg); }
+.wdn-m-xl { margin: var(--wdn-spacing-xl); }
+
+.wdn-mb-xs { margin-bottom: var(--wdn-spacing-xs); }
+.wdn-mb-sm { margin-bottom: var(--wdn-spacing-sm); }
+.wdn-mb-md { margin-bottom: var(--wdn-spacing-md); }
+.wdn-mb-lg { margin-bottom: var(--wdn-spacing-lg); }
+
+.wdn-mt-xs { margin-top: var(--wdn-spacing-xs); }
+.wdn-mt-sm { margin-top: var(--wdn-spacing-sm); }
+.wdn-mt-md { margin-top: var(--wdn-spacing-md); }
+.wdn-mt-lg { margin-top: var(--wdn-spacing-lg); }
+
+/* --------------------------------------------------------------------------
+   BORDER UTILITIES - Utilidades de Borde
+   -------------------------------------------------------------------------- */
+.wdn-border {
+  border: var(--wdn-border-width) solid var(--wdn-border-color);
+}
+
+.wdn-border-top {
+  border-top: var(--wdn-border-width) solid var(--wdn-border-color);
+}
+
+.wdn-border-bottom {
+  border-bottom: var(--wdn-border-width) solid var(--wdn-border-color);
+}
+
+.wdn-rounded {
+  border-radius: var(--wdn-radius-standard);
+}
+
+.wdn-rounded-badge {
+  border-radius: var(--wdn-radius-badge);
+}
+
+.wdn-rounded-circle {
+  border-radius: var(--wdn-radius-circle);
+}
+
+/* --------------------------------------------------------------------------
+   SHADOW UTILITIES - Utilidades de Sombra
+   -------------------------------------------------------------------------- */
+.wdn-shadow-card { box-shadow: var(--wdn-shadow-card); }
+.wdn-shadow-panel { box-shadow: var(--wdn-shadow-panel); }
+.wdn-shadow-modal { box-shadow: var(--wdn-shadow-modal); }
+
+/* --------------------------------------------------------------------------
+   ACCESSIBILITY - Accesibilidad
+   -------------------------------------------------------------------------- */
+/* Screen reader only - visualmente oculto pero accesible */
+.wdn-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus visible para accesibilidad de teclado */
+.wdn-focus-visible:focus-visible {
+  outline: 2px solid var(--wdn-color-brand-primary);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   TRANSITION UTILITIES - Utilidades de Transicion
+   -------------------------------------------------------------------------- */
+.wdn-transition-fast {
+  transition-property: background-color, border-color, color, opacity;
+  transition-duration: var(--wdn-transition-fast);
+  transition-timing-function: var(--wdn-transition-easing);
+}
+
+.wdn-transition-normal {
+  transition-property: background-color, border-color, color, opacity, transform;
+  transition-duration: var(--wdn-transition-normal);
+  transition-timing-function: var(--wdn-transition-easing);
+}
+
+.wdn-transition-panel {
+  transition-property: transform, opacity, width;
+  transition-duration: var(--wdn-transition-panel);
+  transition-timing-function: var(--wdn-transition-easing);
+}
+
+/* ============================================================================
+   WEB COMPONENTS HOST STYLES
+   ============================================================================
+   Estilos base que los Web Components pueden importar.
+   Usar con @import o incluir en el Shadow DOM.
+   ============================================================================ */
+
+/*
+ * Para usar en Web Components con Shadow DOM:
+ *
+ * render() {
+ *   this.shadowRoot.innerHTML = `
+ *     <style>
+ *       :host {
+ *         display: block;
+ *         font-family: var(--wdn-font-family);
+ *       }
+ *
+ *       :host([disabled]) {
+ *         opacity: 0.5;
+ *         cursor: not-allowed;
+ *       }
+ *
+ *       :host(:focus-visible) {
+ *         outline: 2px solid var(--wdn-color-brand-primary);
+ *         outline-offset: 2px;
+ *       }
+ *     </style>
+ *     ...
+ *   `;
+ * }
+ */

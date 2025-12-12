@@ -1,3 +1,4 @@
+
 class WdnNavBar extends HTMLElement{
     static get observedAttributes() {
     return ['attribute-one', 'attribute-two'];
@@ -8,39 +9,49 @@ class WdnNavBar extends HTMLElement{
     }
     connectedCallback() {
     this.render();
-    this._setupEventListeners();
+    // this._setupEventListeners();
     }
     disconnectedCallback() {
-    this._cleanupEventListeners();
+    // this._cleanupEventListeners(); ver problema aqui
     }
     attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue !== newValue) {
     this._handleAttributeChange(name, newValue);
     }
     }
-    _setupEventListeners() { }
+    // _setupEventListeners() { }
     _cleanupEventListeners() { }
     _handleAttributeChange(name, value) { }
     render() {
-        this.shadowRoot.innerHTML = `
+        this.shadowRoot.innerHTML = /*html*/ `
         <style>
             :host{
                 display:block;
-                background: var(--color-primary);
                 font-size: var(--font-size-large);
-                paddign:var(--padding-general);
+                font-family: var(--wdn-font-family);
+                height:var(--altura);
             }
-            .contanier{
+            p{
+                margin:0;
+            }
+            .container{
                 width:100%;
-                heigth:5rem;
-                border:2px solid black;
+                height:100%;
+                background-color: var(--wdn-bg-section);
+            }
+            .container{
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
             }
         </style>
         <div class="container">
-        <p>algo</p>
+            <slot></slot>
         </div>
         `;
-        }
+    }
 }
 customElements.define("wdn-nav-bar", WdnNavBar);
 export default WdnNavBar;
